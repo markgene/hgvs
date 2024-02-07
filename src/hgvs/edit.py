@@ -266,6 +266,16 @@ class AARefAlt(Edit):
             edit_type = "ins"
         return edit_type
 
+    @property
+    def ref_n(self):
+        """
+        returns an integer.
+        """
+        try:
+            return len(self.ref)
+        except ValueError:
+            return None
+
     def _del_ins_lengths(self, ilen):
         """returns (del_len, ins_len).
         Unspecified ref or alt returns None for del_len or ins_len respectively.
